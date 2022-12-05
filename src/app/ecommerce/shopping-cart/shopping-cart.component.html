@@ -1,0 +1,21 @@
+<div class="card text-white bg-danger mb-3 cart">
+    <div class="card-header text-center">Shopping Cart</div>
+    <div class="card-body">
+        <h5 class="card-title">Total: &euro;{{totalStr}}</h5>
+        <hr>
+        <h6 class="card-title">Items bought:</h6>
+
+        <ul>
+            <li *ngFor="let order of orders.productOrders">
+                {{ order.product.name }} - {{ order.quantity}} pcs.
+            </li>
+        </ul>
+
+        <button class="btn btn-light btn-block checkout" (click)="finishOrder()"
+                [disabled]="orders.productOrders.length == 0">Checkout
+        </button>
+        <button class="btn btn-light btn-block reset" (click)="reset()"
+                [disabled]="orders.productOrders.length == 0">Reset
+        </button>
+    </div>
+</div>

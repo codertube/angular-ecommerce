@@ -1,0 +1,41 @@
+<div>
+    <label>Category: </label>
+    <select [ngModel]="selectedCategory" (ngModelChange)="onChange($event)">
+      <option *ngFor="let category of categories" [value]="category.type" [selected]="category.type=='All'">
+        {{category.type}}
+      </option>
+    </select>
+  </div>
+  
+<div class="row card-deck">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders">
+        <div class="card text-center" *ngIf="selectedCategory.type==='All' || order.product.category.type==selectedCategory.type">
+            <div class="card-header">
+                <h4>{{order.product.name}} x {{order.quantity}} 
+                    <a href="#"><img class="minus" src="assets/images/minus.png" alt="minus" 
+                        (click)="reduceQuantity(order)" [ngClass]="{'grey-minus': order.isProductInCart}">
+                    </a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <a href="#"><img class="card-img-top product-image" [src]="order.product.imageUrl" [alt]="order.product.name" 
+                    (click)="imageClick(order)" [ngClass]="{'grey-image': order.product.unitsInStock == 0 ||
+                     order.product.unitsInStock > order.product.quantity}">
+                </a>
+                <h5 class="card-title">&euro;{{order.product.price}}</h5>
+                <div class="row">
+                    <div class="col-4 text-center padding-0" *ngIf="!isProductSelected(order.product)">
+                        <button class="btn btn-primary" (click)="addToCart(order)"
+                                [disabled]="order.quantity <= 0">Add To Cart
+                        </button>
+                    </div>
+                    <div class="col-12" *ngIf="isProductSelected(order.product)">
+                        <button class="btn btn-primary btn-block"
+                                (click)="removeFromCart(order)">Remove From Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

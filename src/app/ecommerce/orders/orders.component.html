@@ -1,0 +1,15 @@
+<h2 class="text-center">ORDER</h2>
+<ul>
+    <li *ngFor="let order of orders.productOrders">
+        {{ order.product.name }} - &euro;{{ order.product.price }} x {{ order.quantity}} pcs.
+    </li>
+</ul>
+<h3 class="text-right">Total amount: &euro;{{ totalStr }}</h3>
+
+Amount Paid : <input type="number" min="0" class="form-control" [(ngModel)]=paidAmount>
+<button class="btn btn-primary btn-block" (click)="pay(paidAmount)" *ngIf="!paid">Pay</button>
+
+<div class="alert alert-success" role="alert" *ngIf="paid">
+    <strong>Congratulation!</strong> You successfully made the order.
+    <span *ngIf="balanceAmount > 0"><br><strong>{{balanceAmountStr}}&euro; balance amount would be refunded</strong></span>
+</div>

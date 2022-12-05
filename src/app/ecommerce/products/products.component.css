@@ -1,0 +1,27 @@
+.padding-0 {
+    padding-right: 0;
+    padding-left: 1;
+}
+
+.product-image{
+    height: 190px;
+    width: 250px;
+}
+
+.minus{
+    height: 20px;
+    width: 20px;
+    float: right;
+}
+
+.grey-image{
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+}
+
+.grey-minus{
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+}

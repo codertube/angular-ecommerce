@@ -1,0 +1,13 @@
+.cart{
+    background-color: grey !important;
+    max-width: 18rem;
+}
+
+.checkout{
+    background-color: lightskyblue;
+}
+
+.reset{
+    float: right;
+    background-color: crimson;
+}
