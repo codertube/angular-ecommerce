@@ -25,3 +25,8 @@
     pointer-events: none;
     user-select: none;
 }
+
+.cart-button{
+    margin-left: 20%;
+    width: 50%;
+}

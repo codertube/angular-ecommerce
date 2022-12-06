@@ -24,7 +24,7 @@
                 </a>
                 <h5 class="card-title">&euro;{{order.product.price}}</h5>
                 <div class="row">
-                    <div class="col-4 text-center padding-0" *ngIf="!isProductSelected(order.product)">
+                    <div class="col-4 text-center padding-0 cart-button" *ngIf="!isProductSelected(order.product)">
                         <button class="btn btn-primary" (click)="addToCart(order)"
                                 [disabled]="order.quantity <= 0">Add To Cart
                         </button>
